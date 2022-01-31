@@ -75,7 +75,9 @@ class Player extends Circle {
         monsters.forEach(m => {
             if (this.collide(m)) {
                 if (aux == 0) {
-                    // playing sound
+                    // playing and stopping sound
+                    gameSnd.pause();
+                    gameSnd.currentTime = 0;
                     deathSnd.play();
                     deathSnd.currentTime = 0;
                     // stopping game 
@@ -193,6 +195,7 @@ function setupControls() {
 // reset the game after loss
 function reset() {
     aux = 0;
+    aux2 = 0;
     monsters.forEach(m => {
         m.remove();
     });
@@ -210,9 +213,14 @@ function updateCoins(num) {
     document.querySelector('#score span').innerHTML = coins;
     // updating high score if surpassed
     if (coins > highScore) {
-        recordSnd.play();
+        
         document.querySelector('#hiScore span').innerHTML = coins;
+        if(aux2 == 0){
+            recordSnd.play();
+            recordSnd.volume = 0.3;
+        }
         highScore = coins;
+        aux2++;
     }
 }
 
@@ -234,8 +242,11 @@ function gameLoop() {
 }
 
 function startGame() {
+    titleSnd.pause();
+    titleSnd.currentTime = 0;
     playerCont++;
     aux = 0;
+    aux2 = 0;
     if (difficulty == 1) {
         w = 544, h = 544;
         app = new PIXI.Application({ width: w, height: h, antialias: true });
@@ -256,10 +267,18 @@ function startGame() {
     app.renderer.backgroundColor = 0x1A1A17;
     document.querySelector("#canvas").appendChild(app.view);
     setupControls();
-    window.onresize();
+    window.onresize();    
+    gameSnd.play();
+    gameSnd.volume = 0.2;
+
 }
 
 function endGame() {
+    // stopping and playing music
+    gameSnd.pause();
+    gameSnd.currentTime = 0;
+    titleSnd.play();
+    titleSnd.volume = 0.1;
     // updating player data into the leaderboard
     updtLb();
     clearInterval(int);
@@ -350,6 +369,7 @@ var player;
 var coin;
 var coins;
 var aux = 0;
+var aux2 = 0;
 // variables for the leaderboard
 var playerName;
 var playerScore;
@@ -358,6 +378,7 @@ var pos;
 var scoreArray = [];
 var highScore = 0;
 // event listeners
+document.getElementById("start").addEventListener("click",enter);
 document.getElementById('str').addEventListener("click", loading);
 document.getElementById("df").addEventListener("click", changeDif);
 document.getElementById("ct").addEventListener("click", customize);
@@ -366,7 +387,15 @@ document.getElementById("lb").addEventListener("click", openLb);
 var coinSnd = new Audio("assets/smw_coin.wav");
 var deathSnd = new Audio("assets/wound.wav");
 var recordSnd = new Audio("assets/eb_winboss.wav");
-
+var gameSnd = new Audio("assets/unfoundedRevenge.mp3");
+var titleSnd = new Audio("assets/snowman.mp3");
+// function for entering the main menu
+function enter(){
+    document.getElementById("startScreen").classList.add("hidden");
+    document.getElementById("cont").classList.remove("hidden");
+    titleSnd.play();
+    titleSnd.volume = 0.1;
+}
 // loading screen promise function
 function loading() {
     document.getElementById("titleScreen").style.display = "none";
@@ -395,6 +424,7 @@ function loading() {
 }
 // Game over promise function
 function gameOver() {
+    aux2 = 0;
     document.getElementById("main").classList.add("blur");
     document.getElementById("gameOverScreen").classList.remove("hidden");
     let time = 5000;
@@ -415,7 +445,6 @@ function gameOver() {
         }, time);
 
         document.getElementById("yesCont").addEventListener("click", function () {
-            ;
             clearInterval(inter);
             clearTimeout(timeO);
             document.getElementById("main").classList.remove("blur");
@@ -425,5 +454,9 @@ function gameOver() {
     })
 }
 function reStartGame() {
+    updtLb();   
+    playerCont++;
+    gameSnd.play();
+    gameSnd.volume = 0.2;
     reset();
 }

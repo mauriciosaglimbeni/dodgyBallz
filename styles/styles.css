@@ -11,8 +11,8 @@ body {
     font-family: Verdana;
     font-size: 20px;
     text-align: center; 
-    /* background-image: url('../assets/bgTest.gif'); */
-    /* background-size: cover; */
+    /* background-image: url('../assets/bgTest.gif'); 
+     background-size: cover; */
     background-color: black;
     
   }
@@ -29,8 +29,10 @@ body {
       color: white;
       font-family: "Crackman", Verdana;
       height: fit-content;
+      width: 100%;
       margin-bottom: -20px;
       letter-spacing: 5px;
+      background-image: url('../assets/bgTest.gif'); 
     }
   #score {
       font-family: Verdana;
@@ -171,4 +173,18 @@ body {
 }
 .hidden{
   display: none;
+}
+#startScreen {
+  font-family: "Crackman", Verdana;
+  color: white;
+  font-size: 90px;
+  margin: auto;
+  margin-top: 15%;
+  letter-spacing: 20px;
+ background-image: url('../assets/bgTest.gif'); 
+}
+#start{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  letter-spacing: 0;
 }
