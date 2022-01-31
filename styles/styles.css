@@ -1,0 +1,174 @@
+@font-face {
+  font-family: Crackman;
+  src: url(../assets/crackman.ttf);
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Verdana;
+    font-size: 20px;
+    text-align: center; 
+    /* background-image: url('../assets/bgTest.gif'); */
+    /* background-size: cover; */
+    background-color: black;
+    
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box; }
+  
+  #main {
+    display: inline-block;
+    width: 95%;
+    max-width: 600px; 
+  }
+  #title {
+      color: white;
+      font-family: "Crackman", Verdana;
+      height: fit-content;
+      margin-bottom: -20px;
+      letter-spacing: 5px;
+    }
+  #score {
+      font-family: Verdana;
+      color: white;
+      font-size: 18px;
+      text-align: right;
+      margin-top: 20px; }
+  #score span {
+        font-size: 24px; }
+        #hiScore {
+          font-family: Verdana;
+          color: white;
+          font-size: 18px;
+          text-align: right;
+          margin-top: 20px; }
+      #hiscore span {
+            font-size: 24px; }
+  #canvas canvas {
+      position: relative;
+    border: white 8px dashed; 
+  }
+  #canvas canvas.left {
+        transform: translate3d(-2px, 0px, 0px); }
+  #canvas canvas.right {
+        transform: translate3d(2px, 0px, 0px); }
+  #canvas canvas.up {
+        transform: translate3d(0px, -2px, 0px); }
+  #canvas canvas.down {
+        transform: translate3d(0px, 2px, 0px); }
+  #controls {
+      font-family: Verdana;
+      font-size: 18px;
+      letter-spacing: 2px;
+      line-height: 28px;
+      margin: 10px; 
+    color: white;}
+  #controls b {
+        color: #eb1a1a; 
+      }
+
+
+#titleScreen{
+  padding-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.menu {
+  margin-bottom: 1em;
+  width: 45%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.menu:hover,.butt:hover{
+  background-color: rgb(104, 102, 102);
+}
+
+#ball{
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 100%;
+    border: 1px solid black;
+}
+
+#lbScreen{
+  height: 80%;
+  border:solid white 5px;
+  color: white;
+  margin-top: 2em;
+}
+#lbScreen h3{
+  border-bottom: white;
+}
+#lbExit{
+  margin-top: 1.5em;
+  color: black;
+  position: relative;
+  left: 27%;
+}
+#loadingScreen{
+  margin-top: 3em;
+  color: white;
+  font-family: "Crackman",Verdana;
+  letter-spacing: 5px;
+  font-size: 1.5em;
+}
+#bar{
+  margin-top: 0.5em;
+  height: 2em;
+  width: 100%;
+  border: 5px solid white;
+}
+
+.loadBar{
+  width: 0;
+  height: 100%;
+  background-color: #ffffff;
+}
+#gameOverScreen{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 2em;
+  color: white;
+  font-size: 2em;
+  font-family: Verdana;
+}
+#gameOverScreen b{
+  font-family: "Crackman", Verdana;
+  font-size: 3em;
+}
+#timer{
+  font-family: "Crackman", Verdana;
+  font-size: 2.5em;
+}
+.butt{
+  margin-top: 1em ;
+  display: inline-block;
+  width: 8em;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+  font-size: 0.6em;
+}
+
+.blur{
+  opacity: 20%;
+}
+.hidden{
+  display: none;
+}

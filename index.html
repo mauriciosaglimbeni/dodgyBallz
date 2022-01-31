@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title> Dodgy-Ball</title>
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    </head>
+    <body>
+    
+        <div id="main">
+            <h1 id="title"> Dodgy-Ballz</h1>
+            <div id="titleScreen">
+                <div id="str" class="menu"> START GAME</div>
+                <div id="df" class="menu"> DIFFICULTY &nbsp;<span id="switch">MEDIUM</span> &nbsp;-></div>
+                <div id="ct" class="menu"> CUSTOMIZE&nbsp;&nbsp;&nbsp;<span id="ball"> </span>&nbsp;&nbsp;-></div>
+                <div id="lb" class="menu"> LEADERBOARD</div>
+                
+            </div>
+            <div id="gameScreen" class="hidden">
+                <div id="score">SCORE: <span>0</span><div id="hiScore"> HIGH SCORE: <span>0</span></div></div>
+                <div id="canvas"></div>
+            </div>
+            <div id="lbScreen" class="hidden">
+                <h3>LEADERBOARD:</h3>
+                <div><b>PLAYER ------------------------------- SCORE</b></div>
+                <div id="lbExit" class="menu"> RETURN</div>
+            </div>
+            <div id="loadingScreen" class="hidden">
+                LOADING...
+                <div id="bar">
+                    <div class="loadBar">&nbsp;</div>
+                </div>
+            </div>
+            <div id="controls">WASD or Arrows to <b>move</b>. ESC to <b>quit</b>.<br><b>Avoid the red balls!</b></div>
+        </div>
+        <div id="gameOverScreen" class="hidden">
+                <b>GAME OVER</b> <br/>
+                <div id="timer"></div>
+                <div id="yesCont" class="butt">Continue ? </div>
+        <!-- js-->
+        <script src='https://pixijs.download/v6.2.1/pixi.js'></script>
+        <script src="src/dodgeBallz.js"></script>
+    </body>
+</html>
